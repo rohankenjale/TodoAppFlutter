@@ -1,0 +1,52 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Todo {
+  id: String!
+  todo: String!
+  isDone: Boolean!
+  user: User!
+}
+
+type User {
+  id: String!
+  name: String!
+  todo: [Todo!]
+}
+
+type Query {
+  getAllUser: [User!]!
+  getUser(id: String!): User!
+  getAllTodo(userid: String!): [Todo!]!
+  getTodo(id: String!): Todo!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: String!): User!
+  createTodo(createTodoInput: CreateTodoInput!, userId: String!): Todo!
+  updateTodo(updateTodoInput: UpdateTodoInput!): Todo!
+  removeTodo(id: String!): Todo!
+}
+
+input CreateUserInput {
+  name: String!
+}
+
+input UpdateUserInput {
+  id: String!
+  name: String!
+}
+
+input CreateTodoInput {
+  todo: String!
+  isDone: Boolean!
+}
+
+input UpdateTodoInput {
+  id: String!
+  todo: String!
+  isDone: Boolean!
+}
